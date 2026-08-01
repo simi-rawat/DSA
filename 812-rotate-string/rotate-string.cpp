@@ -8,7 +8,7 @@ public:
             return true ;
         }
         string ans;
-        int k;
+
         for (int i = 0; i < s.size(); i++) {
             ans.clear();
 
