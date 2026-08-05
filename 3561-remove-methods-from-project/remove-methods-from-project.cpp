@@ -24,8 +24,7 @@ public:
                 }
             }
         }
-
-        // Check if any outside method invokes a suspicious one
+        
         for (auto &e : invocations) {
             int u = e[0], v = e[1];
             if (!vis[u] && vis[v]) {
@@ -35,8 +34,6 @@ public:
                 return ans;
             }
         }
-
-        // Remove suspicious methods
         vector<int> ans;
         for (int i = 0; i < n; i++) {
             if (!vis[i])
