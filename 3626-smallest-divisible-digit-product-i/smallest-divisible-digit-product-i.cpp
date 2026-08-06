@@ -18,7 +18,6 @@ public:
         else{
             while(prod(n)% t != 0 ){
                 n++;
-
             }
         }
         return n;
