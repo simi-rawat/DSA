@@ -17,11 +17,9 @@ public:
 
         int totalQ = qL + qR;
 
-        // Alice gets the last move
         if (totalQ % 2 == 1)
             return true;
 
-        // Bob wins only in this exact case
         return 2 * (sumL - sumR) != 9 * (qR - qL);
     }
 };
