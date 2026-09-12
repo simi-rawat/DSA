@@ -1,0 +1,50 @@
+class Solution {
+public:
+    int totalNumbers(vector<int>& digits) {
+        
+        // Count how many times each digit appears
+        int freq[10] = {0};
+        
+        for (int d : digits) {
+            freq[d]++;
+        }
+        
+        int ans = 0;
+        
+        // Try every 3-digit number
+        for (int num = 100; num <= 999; num++) {
+            
+            // Last digit must be even
+            if (num % 2 != 0)
+                continue;
+            
+            int x = num;
+            
+            // Extract the three digits
+            int a = x / 100;
+            int b = (x / 10) % 10;
+            int c = x % 10;
+            
+            // Check if we have enough copies
+            int need[10] = {0};
+            
+            need[a]++;
+            need[b]++;
+            need[c]++;
+            
+            bool possible = true;
+            
+            for (int d = 0; d <= 9; d++) {
+                if (need[d] > freq[d]) {
+                    possible = false;
+                    break;
+                }
+            }
+            
+            if (possible)
+                ans++;
+        }
+        
+        return ans;
+    }
+};
