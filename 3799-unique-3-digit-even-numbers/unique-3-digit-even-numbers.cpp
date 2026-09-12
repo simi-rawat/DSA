@@ -1,8 +1,6 @@
 class Solution {
 public:
     int totalNumbers(vector<int>& digits) {
-        
-        // Count how many times each digit appears
         int freq[10] = {0};
         
         for (int d : digits) {
@@ -10,22 +8,17 @@ public:
         }
         
         int ans = 0;
-        
-        // Try every 3-digit number
         for (int num = 100; num <= 999; num++) {
             
-            // Last digit must be even
             if (num % 2 != 0)
                 continue;
             
             int x = num;
             
-            // Extract the three digits
             int a = x / 100;
             int b = (x / 10) % 10;
             int c = x % 10;
             
-            // Check if we have enough copies
             int need[10] = {0};
             
             need[a]++;
